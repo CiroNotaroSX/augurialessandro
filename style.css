@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.center{
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(51, 51, 51);
+
+}
+@media (max-width: 750px) {
+    .panel
+    {
+        text-align: center;
+        width: 100vw;
+        min-height: 360px;
+        display: flex;
+        border-radius: 10px;
+        border: black;
+        border-width: 3px;
+        border-style: solid;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: whitesmoke;
+    }
+
+    .panel h1
+    {
+        font-size: 24px;
+    }
+
+    .panel .buttons button
+    {
+        font-size: 16px;
+    }
+}
+
+.panel
+{
+    text-align: center;
+    min-width: fit-content;
+    min-height: 360px;
+    display: flex;
+    border-radius: 10px;
+    border: black;
+    border-width: 3px;
+    border-style: solid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: whitesmoke;
+}
+
+button
+{
+    border: none;
+    border-style: solid;
+    border-radius: 0px;
+    border-width: 1px;
+    min-height: 50px;
+    background-color: whitesmoke;
+    width: 100%;
+    font-size: 25px;
+}
+
+button[data-index="1"]
+{
+    border: rgb(255, 69, 69);
+    border-style: solid;
+    border-radius: 0px;
+    border-width: 5px;
+    min-height: 50px;
+    width: 100%;
+    background-color: rgb(255, 100, 100);
+}
+
+button[data-index="2"]
+{
+    border: rgb(43, 92, 255);
+    border-style: solid;
+    border-radius: 0px;
+    border-width: 5px;
+    min-height: 50px;
+    width: 100%;
+    background-color: rgb(109, 143, 255);
+}
+
+button[data-index="3"]
+{
+    border: rgb(255, 251, 43);
+    border-style: solid;
+    border-radius: 0px;
+    border-width: 5px;
+    min-height: 50px;
+    width: 100%;
+    background-color: rgb(255, 255, 109);
+}
+
+button[data-index="4"]
+{
+    border: rgb(43, 255, 43);
+    border-style: solid;
+    border-radius: 0px;
+    border-width: 5px;
+    min-height: 50px;
+    width: 100%;
+    background-color: rgb(109, 255, 119);
+}
+
+.buttons{
+    margin-bottom: 15px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+
+.container {
+    perspective: 1000px;
+    background-color: transparent;
+}
+  
+.image {
+    transform-style: preserve-3d;
+    animation: rotate 5s infinite linear;
+    width: 100%;
+    height: 100%;
+}
+  
+@keyframes rotate {
+0% {
+    transform: rotateY(0deg);
+}
+100% {
+    transform: rotateY(360deg);
+}
+}
+
+.win
+{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    color: white;
+}
+
+.win h1{
+    width: 100%;
+}

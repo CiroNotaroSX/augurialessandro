@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auguri Alessandro!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="center">
+        <div class="panel">
+            <h1>Domanda 1 olololololololololo</h1>
+            <div class="buttons">
+                <button class="ab" data-index="1">Risposta 1</button>
+                <button class="ab" data-index="2">Risposta 2</button>
+                <button class="ab" data-index="3"> Risposta 3</button>
+                <button class="ab" data-index="4">Risposta 4</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function pushElement(q, a, parent, next)
+        {
+            const top = '<div class="panel"><h1>'+q+'</h1><div class="buttons">';
+            let middle = '';
+            for(let i = 0; i < a.length; i++)
+            {
+                middle+='<button onclick="next('+next+','+i+');" class="ab" data-index="'+(i+1)+'">'+a[i]+'</button>';
+            }
+            const end = top+middle+'</div></div>';
+            parent.innerHTML = end;
+        }
+
+        var point = 0;
+        const center = document.getElementsByClassName("center")[0];
+        window.domande = [   ["Completa l'affermazione!<br>Un calisthenico preferisce allenare ...",["le gambe","la schiena"],center,"1"],
+                            ["Quale dei seguenti alimenti ha più proteine?",["Piccolo bambino ebreo", "Torlo dell'uovo"],center,"0"],
+                            ["Quale dei seguenti muscoli è il più importante per eseguire i muscle up?",["Polpacci","Sternocleidomastoideo","Dorsali"],center,"2"],
+                            ["Come si chiama uno dei calisthenici più forti al mondo?",["Gaggy Yatarov","Gerry Scotty","Prof. Pasquale"],center,"0"],
+                            ["Un calisthenico che usa i guantini è un ...",["Ottimo Calisthenico", "Frocio di merda"],center,"1"]
+                        ];
+
+        function next(index, id)
+        {
+            if(index >= window.domande.length)
+            {
+                if(id == window.domande[index-1][3])
+                    point++;
+                
+                var total = (point/window.domande.length)*100;
+            
+                alert("Hai risposto con una accuratezza del: "+(total)+"%");
+
+                if(total < 60)
+                {
+                    const gift = 100-total;
+                    alert("Visto che sei il migliore ti regalo un +"+gift+"% al tuo punteggio!");
+                    total+=gift;
+                }
+
+                center.innerHTML = "";
+                center.innerHTML = "<div class='win'>Hai vinto un buono!</h1><div class='container'><img class='image' src='regalo.png' alt='Auguri Ale!'></div></div>"
+
+                return;
+
+            }else
+            {
+                
+                if(index != 0)
+                    if(id == window.domande[index-1][3])
+                        point++;
+            }
+
+            if(index < window.domande.length)
+            {
+                pushElement(window.domande[index][0], window.domande[index][1], window.domande[index][2], index+1);
+            }
+        }
+
+        next(0, -1);
+    </script>
+</body>
+</html>
